@@ -5,7 +5,7 @@ const logger = (request, response, next) => {
   const now = new Date();
   const message = `${method}:${url} - ${now}`;
   console.log(message);
-
+  next();
 };
 
 module.exports = logger;
