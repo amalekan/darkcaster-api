@@ -2,7 +2,6 @@
 const express = require('express');
 const server = express();
 const port = process.env.PORT || 8080;
-
 //middleware imports
 const logger = require('./middleware/logger');
 const notFound = require('./middleware/404');
