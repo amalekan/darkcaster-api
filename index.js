@@ -11,8 +11,8 @@ const errorHandler = require('./middleware/500');
 const weatherRouter = require('./routers/weather.router');
 //middlware use
 server.use(logger);
-server.use(weatherRouter);
 server.use(cors());
+server.use(weatherRouter);
 server.use(notFound);
 server.use(errorHandler);
 // dummy route for testing
