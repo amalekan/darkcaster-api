@@ -29,26 +29,26 @@ router.get('/weather/:lat,:lon', (request, response, next) => {
          next(err);
        });
 });
-// router.get('/weather/location/:location', (request, response, next) => {
-//   const location = request.params.location;
-//   const locUrl = `${googleUrl}${location}`;
-//   axios.get(locUrl)
-//        .then((loc) => {
-//         const lat = loc.data.results[0].geometry.location.lat;
-//         const lon = loc.data.results[0].geometry.location.lng;
-//         const url = `${baseUrl}${lat},${lon}`;
-//         return axios.get(url)
-//                     .then(weather => {
-//                       response.json(weather.data);
-//                     })
-//                     .catch(err => {
-//                       next(err);
-//                     });
-//       })
-//        .catch(err => {
-//          next(err);
-//        });
-// });
+router.get('/weather/location/:location', (request, response, next) => {
+  const location = request.params.location;
+  const locUrl = `${googleUrl}${location}`;
+  axios.get(locUrl)
+       .then((loc) => {
+        const lat = loc.data.results[0].geometry.location.lat;
+        const lon = loc.data.results[0].geometry.location.lng;
+        const url = `${baseUrl}${lat},${lon}`;
+        return axios.get(url)
+                    .then(weather => {
+                      response.json(weather.data);
+                    })
+                    .catch(err => {
+                      next(err);
+                    });
+      })
+       .catch(err => {
+         next(err);
+       });
+});
 //
 // router.get('/weather/MyLocation', (request, response, next) => {
 //     //Get current location using IP address
